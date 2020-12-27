@@ -5,7 +5,7 @@ const signupdata = require('../model/signupdata');
 function router(nav) {
 
     signupRoutes.get('/', function(req, res) {
-        res.render("signup", {
+        res.render("register", {
             nav,
             title: 'SIGNUP'
 
@@ -13,10 +13,11 @@ function router(nav) {
     });
     signupRoutes.post('/add', function(req, res) {
         var item = {
+            name: req.body.name,
             email: req.body.email,
             mobile: req.body.mobile,
             password: req.body.password,
-            passwordconf: req.body.passwordconf
+            passwordconfirmation: req.body.passwordconf
         }
 
         var signup = signupdata(item)
